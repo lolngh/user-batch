@@ -1,0 +1,41 @@
+{
+  "type": "CSV Generator",
+  "query": "SELECT u.name, u.active, u.address, a.account_name, a.type, a.balance FROM users as u join account a on a.userid=u.userid WHERE u.active = :state",
+  "delimeter": ",",
+  "file_name": "output_retrieved_YYYYMMDDHHMMSS",
+  "file_path": "output/",
+  "file_type": "csv",
+  "attributes": [
+    {
+      "name": "User Name",
+      "db_column": "name"
+    },
+    {
+      "name": "User State",
+      "db_column": "active"
+    },
+    {
+      "name": "Address",
+      "db_column": "address"
+    },
+    {
+      "name": "Account Type",
+      "db_column": "type"
+    },
+    {
+      "name": "Account Name",
+      "db_column": "account_name"
+    },
+    {
+      "name": "Currency Balance",
+      "db_column": "balance"
+    }
+  ],
+  "batch_size": 100,
+  "additional_where_clause": [
+    {
+      "criteria_attribute": "state",
+      "criteria_value": true
+    }
+  ]
+}
